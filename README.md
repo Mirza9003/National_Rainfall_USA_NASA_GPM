@@ -1,92 +1,144 @@
-# National Rainfall Intelligence Dashboard (USA) — NASA GPM IMERG
+<div align="center">
 
-<p align="left">
+# TerraHydroVue: National Rainfall Intelligence Dashboard (USA)
+
+### A professional Google Earth Engine rainfall analytics platform powered by **NASA GPM IMERG V07**
+
+<p>
   <a href="https://ee-phdstudentuiowa.projects.earthengine.app/view/nasagpmrainfallintelligencedashboard">
-    <img src="https://img.shields.io/badge/GEE-Live%20Interactive%20App-7AA116?style=for-the-badge" alt="GEE App">
+    <img src="https://img.shields.io/badge/Launch-Live%20GEE%20App-2E7D32?style=for-the-badge&logo=googleearthengine&logoColor=white" alt="Live GEE App">
   </a>
   <a href="./LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License">
+    <img src="https://img.shields.io/badge/License-MIT-1565C0?style=for-the-badge" alt="License">
   </a>
-  <img src="https://img.shields.io/badge/Data-NASA%20GPM%20IMERG%20V07-darkgreen?style=for-the-badge" alt="Data">
-  <img src="https://img.shields.io/badge/Coverage-50%20States%20%2B%20DC-red?style=for-the-badge" alt="Coverage">
-  <img src="https://img.shields.io/badge/Methods-Theil--Sen%20%7C%20Mann--Kendall%20%7C%20SPI%20%7C%20ETCCDI-purple?style=for-the-badge" alt="Methods">
+  <img src="https://img.shields.io/badge/Data-NASA%20GPM%20IMERG%20V07-6A1B9A?style=for-the-badge" alt="Data">
+  <img src="https://img.shields.io/badge/Coverage-USA%20(50%20States%20%2B%20DC)-C62828?style=for-the-badge" alt="Coverage">
 </p>
 
-An interactive Google Earth Engine application for national-scale rainfall
-monitoring, trend, drought, and extreme-event analytics across all 50 U.S.
-states and the District of Columbia, built on NASA GPM IMERG V07 satellite
-precipitation data.
+<p>
+  <img src="https://img.shields.io/badge/Methods-Theil--Sen%20Slope-informational?style=flat-square" alt="Theil-Sen">
+  <img src="https://img.shields.io/badge/Methods-Mann--Kendall-informational?style=flat-square" alt="Mann-Kendall">
+  <img src="https://img.shields.io/badge/Methods-SPI-informational?style=flat-square" alt="SPI">
+  <img src="https://img.shields.io/badge/Methods-ETCCDI%20Extremes-informational?style=flat-square" alt="ETCCDI">
+</p>
+
+**Near-real-time rainfall monitoring, long-term trend analysis, drought diagnostics, and extreme-event analytics for the United States — all in one interactive Google Earth Engine web application.**
+
+</div>
 
 ---
 
-## Live Application
+## Quick Access
 
-**Launch the interactive Google Earth Engine app:**
-## [Open the National Rainfall Intelligence Dashboard](https://ee-phdstudentuiowa.projects.earthengine.app/view/nasagpmrainfallintelligencedashboard)
+- **Live App:** [Open the National Rainfall Intelligence Dashboard](https://ee-phdstudentuiowa.projects.earthengine.app/view/nasagpmrainfallintelligencedashboard)
+- **Main Script:** [`RainfallDashboard/TerraHydroVue_National_Rainfall_Dashboard.js`](./RainfallDashboard/TerraHydroVue_National_Rainfall_Dashboard.js)
+- **Workflow Figure:** [`RainfallDashboard/Flowchart.png`](./RainfallDashboard/Flowchart.png)
+- **License:** [MIT License](./LICENSE)
 
 ---
 
-## Visual Highlights
+## Project Overview
+
+**TerraHydroVue** is a national-scale rainfall intelligence platform developed in **Google Earth Engine (GEE)** using **NASA GPM IMERG V07** satellite precipitation data.
+
+The dashboard is designed to support:
+
+- **rainfall monitoring**
+- **spatiotemporal trend assessment**
+- **drought characterization**
+- **extreme precipitation analysis**
+- **climate anomaly interpretation**
+
+across **all 50 U.S. states and the District of Columbia**.
+
+Rather than serving only as a simple rainfall map viewer, the platform integrates **near-real-time monitoring** with **statistically robust long-term hydroclimatic analysis** in a single web-based interface.
+
+---
+
+## Visual Summary
 
 <table>
   <tr>
-    <td align="center" width="50%">
-      <img src="./docs/flowchart.png" alt="Application Workflow" width="100%">
+    <td width="55%" align="center">
+      <img src="./RainfallDashboard/Flowchart.png" alt="Workflow Figure" width="100%">
       <br>
-      <b>Data &amp; Analysis Workflow</b>
+      <sub><b>Figure:</b> End-to-end workflow of the rainfall intelligence system.</sub>
     </td>
-    <td align="center" width="50%">
-      <img src="./docs/screenshot.png" alt="Dashboard Interface" width="100%">
-      <br>
-      <b>Interactive Dashboard Interface</b>
-    </td>
+    <td width="45%" valign="top">
+
+### What the Dashboard Provides
+
+- Nationwide rainfall monitoring
+- State-wise interactive selection
+- Rolling 7 / 30 / 90-day precipitation accumulation
+- Long-term rainfall trend estimation
+- Trend significance assessment
+- Standardized drought analysis (SPI)
+- Extreme rainfall metrics
+- Standardized anomaly mapping
+- Download-ready outputs for analysis and reporting
+
+> **Tip:** You can make this README even more attractive by adding a second image such as a dashboard screenshot (for example `DashboardScreenshot.png`) beside the workflow figure.
+
+   </td>
   </tr>
 </table>
 
 ---
 
-## Overview
-
-This repository contains a reproducible, national-scale Google Earth Engine
-workflow for U.S. rainfall analytics. It moves beyond simple accumulation maps
-by combining near-real-time monitoring with statistically rigorous long-term
-climate analysis in a single interactive dashboard:
-
-- recent rainfall monitoring from half-hourly IMERG,
-- robust long-term trend estimation with significance testing,
-- standardized drought indices,
-- satellite-based extreme-event indices, and
-- standardized anomalies against a fixed climate baseline,
-
-all with per-state data download in CSV and GeoTIFF formats.
-
----
-
 ## Key Features
 
-- **National coverage** — all 50 states + DC (`TIGER/2018/States`), selectable
-  by dropdown or map click
-- **Recent monitoring** — rolling 7 / 30 / 90-day rainfall accumulation
-- **Robust trend** — Theil–Sen slope with **Mann–Kendall** significance
-  (trend reported only when p < 0.05)
-- **Drought index** — Standardized Precipitation Index (SPI) at 1 / 3 / 6 / 12
-  month timescales
-- **Extreme indices** — ETCCDI Rx1day and Rx5day from IMERG daily totals
-- **Anomalies** — standardized annual anomaly vs a 2001–2020 baseline
-- **Colorblind-safe visualization** — viridis (magnitude) and ColorBrewer
-  BrBG / RdBu (diverging) palettes
-- **Data download** — CSV (daily series, annual totals + trend, monthly
-  climatology) and GeoTIFF (any raster layer)
-- **Runtime date detection** — the app auto-detects the latest available IMERG
-  data, so it stays current with no code changes
+### 1) National Coverage
+- Covers **all 50 U.S. states + Washington, DC**
+- Uses **U.S. Census TIGER/Line** state boundaries
+- States can be selected through the dashboard interface
+
+### 2) Recent Rainfall Monitoring
+- Rolling **7-day**, **30-day**, and **90-day** accumulated rainfall
+- Derived from **GPM IMERG 30-minute precipitation**
+- Useful for short-term hydrologic and rainfall condition assessment
+
+### 3) Long-Term Trend Analysis
+- Robust rainfall trend estimation using **Theil–Sen slope**
+- Trend significance tested using **Mann–Kendall**
+- Trends are shown only when statistically meaningful
+
+### 4) Drought Diagnostics
+- **SPI (Standardized Precipitation Index)** available at:
+  - 1 month
+  - 3 month
+  - 6 month
+  - 12 month
+
+### 5) Extreme Rainfall Metrics
+- ETCCDI-style rainfall indices including:
+  - **Rx1day** — annual maximum 1-day rainfall
+  - **Rx5day** — annual maximum consecutive 5-day rainfall
+
+### 6) Climate Anomalies
+- Standardized annual rainfall anomaly relative to a **2001–2020 baseline**
+- Helps identify unusually wet or dry years
+
+### 7) Export and Reproducibility
+- Supports tabular and raster outputs
+- Designed as a transparent, reproducible Google Earth Engine workflow
 
 ---
 
-## Study Area
+## Scientific Scope
 
-The application covers the full territory of the United States — all
-**50 states plus the District of Columbia** — using U.S. Census TIGER/Line
-2018 state boundaries.
+This application goes beyond visualization by integrating **hydroclimatic statistics** directly within the decision-support workflow.
+
+The dashboard combines:
+
+- **recent rainfall accumulation**
+- **historical climatology**
+- **trend detection**
+- **drought indicators**
+- **extreme event indices**
+- **standardized anomalies**
+
+to provide a more comprehensive interpretation of precipitation variability across the United States.
 
 ---
 
@@ -94,65 +146,60 @@ The application covers the full territory of the United States — all
 
 | Purpose | Dataset | Earth Engine ID |
 |---|---|---|
-| Recent monitoring, daily extremes | GPM IMERG V07 (30-minute) | `NASA/GPM_L3/IMERG_V07` |
-| Historical totals, trend, SPI, climatology | GPM IMERG Monthly V07 | `NASA/GPM_L3/IMERG_MONTHLY_V07` |
-| State boundaries | U.S. Census TIGER 2018 | `TIGER/2018/States` |
+| Recent rainfall monitoring | GPM IMERG V07 (30-minute) | `NASA/GPM_L3/IMERG_V07` |
+| Historical climatology & rainfall analytics | GPM IMERG Monthly V07 | `NASA/GPM_L3/IMERG_MONTHLY_V07` |
+| State boundaries | U.S. Census TIGER/Line 2018 | `TIGER/2018/States` |
 
-IMERG precipitation bands are **rates (mm/hour)**. The app converts them to
-depths: monthly rate × hours-in-month, and half-hourly rate × 0.5 h summed per
-day. Monthly IMERG lags real time by several months, so trend and climatology
-use the latest **complete** calendar year, and any partial year is flagged in
-the UI.
+### Important Data Note
+IMERG precipitation is provided as a **rate (mm/hour)**, not direct accumulated rainfall depth.
 
----
+Accordingly, the app converts precipitation correctly by:
 
-## Scientific Methods
+- multiplying **30-minute IMERG rate × 0.5 hour** before daily accumulation
+- multiplying **monthly mean rate × total hours in each month** for monthly rainfall totals
 
-Full equations, assumptions, and references are in
-[`docs/METHODS.md`](docs/METHODS.md). Summary:
-
-| Method | Purpose | Reference |
-|---|---|---|
-| Theil–Sen slope | Robust trend magnitude (mm/yr) | Sen (1968) |
-| Mann–Kendall test | Trend significance (p-value) | Mann (1945); Kendall (1975) |
-| SPI (1/3/6/12-month) | Standardized drought index | McKee et al. (1993) |
-| ETCCDI Rx1day, Rx5day | Extreme-rainfall indices | Zhang et al. (2011) |
-| Standardized anomaly | Departure from baseline (z) | — |
-
-**Baseline:** 2001–2020. IMERG monthly begins mid-2000, so a WMO 1991–2020
-normal is not possible; a 20-year IMERG-native window is used throughout. See
-[`docs/METHODS.md`](docs/METHODS.md) for the rationale.
+This ensures scientifically appropriate rainfall-depth calculations.
 
 ---
 
-## Quick Start
+## Methods Used
 
-1. Sign in to the
-   [Earth Engine Code Editor](https://code.earthengine.google.com/) with an
-   Earth Engine–enabled Google account.
-2. Copy the contents of
-   [`src/TerraHydroVue_National_Rainfall_Dashboard.js`](src/TerraHydroVue_National_Rainfall_Dashboard.js)
-   into a new script.
-3. Click **Run**. Select a state and analysis period, then **Run Analysis**.
+| Method | Purpose |
+|---|---|
+| **Theil–Sen slope** | Robust estimation of rainfall trend magnitude |
+| **Mann–Kendall test** | Statistical significance testing of monotonic trends |
+| **SPI** | Standardized drought monitoring |
+| **ETCCDI Rx1day / Rx5day** | Extreme rainfall characterization |
+| **Standardized anomaly** | Comparison against baseline rainfall climatology |
 
-Or simply use the
-[live app](https://ee-phdstudentuiowa.projects.earthengine.app/view/nasagpmrainfallintelligencedashboard) —
-no installation required.
+### Baseline Period
+A **2001–2020 baseline** is used for climatology and anomaly calculations.  
+This baseline is appropriate given the temporal extent of the IMERG monthly archive.
 
 ---
 
-## Limitations
+## Live Application
 
-- **Satellite, not gauge.** IMERG values are satellite-derived area means and
-  are **not** a substitute for rain-gauge validation. Satellite extreme-value
-  indices (Rx1day, Rx5day) carry larger uncertainty than gauge-based ETCCDI.
-- **SPI is a normal-based approximation**, not a gamma fit (Earth Engine has no
-  closed-form gamma inverse). It closely approximates gamma-fit SPI at ≥ 3-month
-  scales and is weakest at 1 month. This is labeled in the app UI.
-- **Performance.** Nationwide multi-decade reductions are computation-heavy; the
-  app coarsens the interactive scale for large states. Full-resolution GeoTIFF
-  of large rasters uses an `Export.image.toDrive` fallback (requires your own
-  Earth Engine account).
+### Launch the Dashboard
+## [Open the National Rainfall Intelligence Dashboard](https://ee-phdstudentuiowa.projects.earthengine.app/view/nasagpmrainfallintelligencedashboard)
+
+The live app allows users to explore rainfall conditions interactively without installing any local software.
+
+---
+
+## How to Use
+
+### Option 1 — Use the Live App
+Open the published GEE application directly from the link above.
+
+### Option 2 — Run the Script in Google Earth Engine
+1. Sign in to the [Google Earth Engine Code Editor](https://code.earthengine.google.com/).
+2. Create a new JavaScript script.
+3. Copy the contents of:  
+   [`RainfallDashboard/TerraHydroVue_National_Rainfall_Dashboard.js`](./RainfallDashboard/TerraHydroVue_National_Rainfall_Dashboard.js)
+4. Paste it into the GEE Code Editor.
+5. Click **Run**.
+6. Interact with the dashboard by selecting the desired state and analysis options.
 
 ---
 
@@ -162,46 +209,6 @@ no installation required.
 National_Rainfall_USA_NASA_GPM/
 ├── README.md
 ├── LICENSE
-├── CONTRIBUTING.md
-├── src/
-│   └── TerraHydroVue_National_Rainfall_Dashboard.js   # the GEE application
-└── docs/
-    ├── METHODS.md          # equations, assumptions, references
-    ├── flowchart.png       # data & analysis workflow
-    └── screenshot.png      # dashboard interface
-```
-
----
-
-## Author
-
-**Mirza Md Tasnim Mukarram**
-
-Informatics, Dept of Computer Science
-School of Earth, Environment, and Sustainability​
-FAA 107 Certified Remote Pilot | PGD (Data Science)​ | MEcon (Environmental Economics)​ | BSc (Civil & Environmental Engineering)
-
-Office: 216 Jessup Hall (JH), 5 West Jefferson Street
-Iowa City, IA 52242, United States, The University of Iowa
-Phone: +1 (319) 800 8098
-Email: mtasnimmukarram@uiowa.edu
-
----
-
-## Citation
-
-If you use this repository, application, or derived outputs, please cite it
-along with the underlying NASA GPM IMERG datasets (see the DOIs on the
-[GES DISC IMERG pages](https://disc.gsfc.nasa.gov/)). A suggested form:
-
-> Mukarram, M. M. T. (2026). *National Rainfall Intelligence Dashboard (USA):
-> An interactive Google Earth Engine application using NASA GPM IMERG V07.*
-> GitHub repository.
-
----
-
-## License
-
-Released under the MIT License — see [`LICENSE`](LICENSE).
-The NASA GPM IMERG and U.S. Census TIGER/Line datasets retain their own terms
-of use and citation requirements.
+└── RainfallDashboard/
+    ├── Flowchart.png
+    └── TerraHydroVue_National_Rainfall_Dashboard.js
